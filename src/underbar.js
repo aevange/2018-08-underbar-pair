@@ -85,6 +85,15 @@ var _ = { };
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array) {
+    var breadcrumbs = {};
+    var results = [];
+    _.each(array, function(value){
+      if(!breadcrumbs[value]){
+        results.push(value);
+        breadcrumbs[value] = true;
+      }
+    });
+    return results;
   };
 
 
