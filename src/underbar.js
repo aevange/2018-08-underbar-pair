@@ -26,7 +26,6 @@ var _ = { };
   // Like first, but for the last elements. If n is undefined, return just the
   // last element.
   _.last = function(array, n) {
-    debugger;
    if ( n === undefined ){
       return _.first(array.reverse());
     } else {
@@ -38,6 +37,9 @@ var _ = { };
   // Call iterator(value, key, collection) for each element of collection.
   // Accepts both arrays and objects.
   _.each = function(collection, iterator) {
+    for(var i = 0; i < collection.length; i++) {
+      iterator(collection[i], i, collection);
+    }
   };
 
   // Returns the index at which value can be found in the array, or -1 if value
