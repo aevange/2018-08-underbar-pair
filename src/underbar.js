@@ -270,7 +270,7 @@ var _ = { };
   _.memoize = function(func) {
     var memoRy = {};
     return function(arg){
-      if (!memoRy[arg]) memoRy[arg] = func.call(this,arg); 
+      memoRy[arg] || (memoRy[arg] = func.call(this,arg)); 
       return memoRy[arg];
     };
   };
