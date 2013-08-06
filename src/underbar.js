@@ -144,6 +144,13 @@ var _ = { };
   //   }, 0); // should be 6
   //
   _.reduce = function(collection, iterator, initialValue) {
+    var result;
+    if(initialValue === undefined) result = _.first(collection);
+    else result = initialValue;
+    _.each(collection, function(value){
+      result = iterator(result, value);
+    });
+    return result;
   };
 
   // Determine if the array or object contains a given value (using `===`).
