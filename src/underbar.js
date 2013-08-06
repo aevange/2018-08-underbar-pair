@@ -128,7 +128,8 @@ var _ = { };
     return _.map(list, function(value, key, list){
       if (typeof methodName === 'string'){
         return value[methodName]();
-        //return methodName.apply(undefined, value,args);
+      } else {
+        return methodName.apply(value,args);
       }
     })
   };
