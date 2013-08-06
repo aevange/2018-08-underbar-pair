@@ -88,10 +88,8 @@ var _ = { };
     var breadcrumbs = {};
     var results = [];
     _.each(array, function(value){
-      if(!breadcrumbs[value]){
-        results.push(value);
-        breadcrumbs[value] = true;
-      }
+      breadcrumbs[value] || results.push(value);
+      breadcrumbs[value] = true;
     });
     return results;
   };
