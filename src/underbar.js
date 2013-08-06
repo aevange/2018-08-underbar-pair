@@ -67,9 +67,7 @@ var _ = { };
   _.filter = function(collection, iterator) {
     var results = [];
     _.each(collection, function(value) {
-      if(iterator(value)){
-        results.push(value);
-      }
+      iterator(value) && results.push(value);
     });
     return results;
   };
@@ -100,6 +98,7 @@ var _ = { };
     // map() is a useful primitive iteration function that works a lot
     // like each(), but in addition to running the operation on all
     // the members, it also maintains an array of results.
+
   };
 
   /*
