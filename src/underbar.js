@@ -145,8 +145,15 @@ var _ = { };
   //
   _.reduce = function(collection, iterator, initialValue) {
     var result;
-    if(initialValue === undefined) result = _.first(collection);
+    var passedCollection
+    if(initialValue === undefined) {
+      result = _.first(ourCollection);
+
+      
+    }
     else result = initialValue;
+
+    
     _.each(collection, function(value){
       result = iterator(result, value);
     });
