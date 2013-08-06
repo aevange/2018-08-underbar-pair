@@ -145,16 +145,17 @@ var _ = { };
   //
   _.reduce = function(collection, iterator, initialValue) {
     var result;
-    var passedCollection
+    var passedCollection;
     if(initialValue === undefined) {
-      result = _.first(ourCollection);
-
-      
+      result = _.first(collection);
+      passedCollection = collection.slice(1);
+    } else {
+      result = initialValue;
+      passedCollection = collection;
     }
-    else result = initialValue;
 
-    
-    _.each(collection, function(value){
+
+    _.each(passedCollection, function(value){
       result = iterator(result, value);
     });
     return result;
