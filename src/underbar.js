@@ -174,9 +174,10 @@ var _ = { };
 
   // Determine whether all of the elements match a truth test.
   _.every = function(collection, iterator) {
+    iterator = iterator || function(val){return val};
     // TIP: Try re-using reduce() here.
     return _.reduce(collection, function (pass, value){
-      return pass && iterator(value);
+      return Boolean(pass && iterator(value));
     }, true);
   };
 
