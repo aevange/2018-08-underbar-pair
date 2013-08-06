@@ -56,8 +56,8 @@ var _ = { };
     // it uses the iteration helper `each`, which you will need to write.
     var index = -1;
     _.each(array, function(value, key){
-      if ( index === -1){
-        if ( value === target ) index = key;
+      if (index === -1 && value === target){
+        index = key;
       }
     });
     return index;
