@@ -316,6 +316,7 @@ var _ = { };
     var tmp;
     var swap;
     var position;
+    var unique;
 
     var randNum = function (){
         //return some math rand operation floor
@@ -326,8 +327,10 @@ var _ = { };
     for ( var i = 0; i < array.length; i++ ){
         tmp = array[i];
         unique = false;
+        breadcrumbs[i] = true;
         do {
           position = randNum();
+//debugger;
           if (!breadcrumbs.position){
             unique = true;
             breadcrumbs[position] = true;
