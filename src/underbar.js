@@ -311,7 +311,7 @@ var _ = { };
     //this is not going to be quite right yet ... may allow for duplication of elements
     //check new array to see if we've placed the cards were swapping, if so use value from new
     // array, not array
-    var result = [];
+    var results = [];
     var breadcrumbs = {};
     var tmp;
     var swap;
@@ -320,29 +320,21 @@ var _ = { };
 
     var randNum = function (){
         //return some math rand operation floor
-        return Math.floor((Math.random()*array.length));  
+        return Math.floor((Math.random()*array.length)) + 2;  
     }
-
-
-    for ( var i = 0; i < array.length; i++ ){
-        tmp = array[i];
-        unique = false;
-        breadcrumbs[i] = true;
-        do {
-          position = randNum();
-//debugger;
-          if (!breadcrumbs.position){
-            unique = true;
-            breadcrumbs[position] = true;
-          }
-        } while (!unique);
-        
-        swap = array[position];
-        result[i] = swap;
-        result[position] = tmp;
+/*
+    for(var i = 0; i < array.length; i++){
+      do {
+        debugger;
+        var arrayIndex = randNum();
+        if (!breadcrumbs[arrayIndex]) {
+          results[i] = array[arrayIndex];
+          breadcrumbs[arrayIndex] = true;
+        }
+      } while (!results[i]);
     }
-    debugger;
-    return result;
+    debugger; */
+    return results;
   };
 
 
