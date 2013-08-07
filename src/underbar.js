@@ -296,6 +296,22 @@ var _ = { };
 
   // Shuffle an array.
   _.shuffle = function(array) {
+    //lets try a fischer yates from memory:)
+
+
+    // without modifying the original array
+
+    //init an array of same length as array argument
+
+    //for each element in array
+    //create a random number between i and length -1, set equal to x
+    //put card x from array in new array at index i
+    //put card from index i of array into new array at index x
+
+    //this is not going to be quite right yet ... may allow for duplication of elements
+    //check new array to see if we've placed the cards were swapping, if so use value from new
+    // array, not array
+
   };
 
 
