@@ -315,17 +315,28 @@ var _ = { };
     var breadcrumbs = {};
     var tmp;
     var swap;
+    var position;
 
     var randNum = function (){
         //return some math rand operation floor
-        return Math.floor((Math.random()*array.length)+1);  
+        return Math.floor((Math.random()*array.length));  
     }
+
 
     for ( var i = 0; i < array.length; i++ ){
         tmp = array[i];
-        swap = array[randNum];
-        array[i] = swap;
-        array[tmp] = tmp;
+        unique = false;
+        do {
+          position = randNum();
+          if (!breadcrumbs.position){
+            unique = true;
+            breadcrumbs[position] = true;
+          }
+        } while (!unique);
+        
+        swap = array[position];
+        result[i] = swap;
+        result[position] = tmp;
     }
     debugger;
     return result;
